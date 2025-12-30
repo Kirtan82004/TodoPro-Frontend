@@ -12,7 +12,7 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
-    email: "",
+    identifier: "",
     password: "",
   });
 
@@ -30,7 +30,7 @@ const Login = () => {
     e.preventDefault();
     setError("");
 
-    if (!formData.email || !formData.password) {
+    if (!formData.identifier || !formData.password) {
       setError("All fields are required");
       return;
     }
@@ -77,9 +77,9 @@ const Login = () => {
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
           <input
             type="text"
-            name="email"
-            placeholder="Email"
-            value={formData.email}
+            name="identifier"
+            placeholder="Email or Username"
+            value={formData.identifier}
             onChange={handleChange}
             className="w-full px-4 py-2 rounded-lg border dark:bg-zinc-700 dark:border-zinc-600"
           />
