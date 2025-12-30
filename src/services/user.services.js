@@ -42,9 +42,32 @@ const getCurrentUser = async (token) => {
     });
     return res.data;
 }
+const updateAvatar = async (imageFile) => {
+    try {
+        const formData = new FormData();
+        formData.append("avatar", imageFile);
+
+        const res = await axios.patch(`${API_URL}/users/upload-avatar`, formData, {
+            withCredentials: true,
+            headers: { 
+                "Content-Type": "multipart/form-data",
+                Authorization: `Bearer ${localStorage.getItem("accessToken")}` 
+            }
+        });
+        console.log("UpdateProfileImage Response:", res);
+        window.alert("Profile image updated successfully!");
+        return res.data;
+    } catch (error) {
+        console.error("UpdateProfileImage Error:", error);
+        window.alert(error.response?.data?.message || "Image update failed!");
+        return error.response?.data || { success: false };
+    }
+};
+
 export {
     getUserProfile,
     updateUserProfile,
     changePassword,
-    getCurrentUser
+    getCurrentUser,
+    updateAvatar
 };
