@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {loginUser} from "../services/auth.services.jS";
+import {loginUser} from "../services/auth.services.js";
 import Button from "../components/Button";
 import Loader from "../components/Loader";
 

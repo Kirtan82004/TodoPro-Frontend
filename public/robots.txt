@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Disallow protected/private routes
+Disallow: /dashboard
+Disallow: /add-todo
+Disallow: /profile
+Disallow: /sub-todo
+
+# Sitemap location
+Sitemap: https://yourdomain.com/sitemap.xml
