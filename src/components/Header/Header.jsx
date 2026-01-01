@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { LogOut, LogIn, UserPlus } from "lucide-react";
 
 import { useSelector, useDispatch } from "react-redux";
-import { logoutUser } from "../../services/auth.services.jS";
+import { logoutUser } from "../../services/auth.services.js";
 import { logout } from "../../store/authSlice.js";
 
 const Navbar = () => {

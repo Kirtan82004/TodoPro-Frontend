@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { updateUserProfile, changePassword, updateAvatar } from "../services/user.services"
-import { loginSuccess } from "../store/authSlice"
+import { updateUserProfile, changePassword, updateAvatar } from "../services/user.services.js"
+import { loginSuccess } from "../store/authSlice.js"
 import Button from "../components/Button"
 import Loader from "../components/Loader"
 
