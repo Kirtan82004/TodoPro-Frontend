@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import Loader from "../components/Loader";
 import { registerUser } from "../services/auth.services.js";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../store/authSlice.js";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +16,7 @@ const Register = () => {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -28,12 +31,11 @@ const Register = () => {
 
     try {
       const res = await registerUser(formData);
-      if (res.success) {
-        alert("Account created successfully!");
-        navigate("/login");
-      } else {
-        setError(res.message || "Something went wrong!");
-      }
+      console.log("Register Response in Component:", res);
+      alert("Account created successfully!");
+      dispatch(loginSuccess(res.user));
+      navigate("/dashboard");
+      
     } catch (err) {
       setError(err.message || "Server error!");
     } finally {

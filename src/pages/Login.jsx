@@ -41,9 +41,7 @@ const Login = () => {
       const res = await loginUser(formData);
       console.log("Login Response:", res);
       dispatch(loginSuccess(res.user));
-      
-      localStorage.setItem("accessToken", res.accessToken);
-      localStorage.setItem("refreshToken", res.refreshToken);
+
       navigate("/dashboard");
 
     } catch (err) {
