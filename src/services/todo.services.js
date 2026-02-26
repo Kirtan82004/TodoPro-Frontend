@@ -8,7 +8,7 @@ const createTodo = async (token, todoData) => {
     
   const res = await axios.post(`${API_URL}/todos`, todoData, {
       headers: {
-          'Authorization': `Bearer ${token}`,
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`,
         },
         withCredentials: true,
     });
@@ -19,7 +19,7 @@ const createTodo = async (token, todoData) => {
 const getTodos = async (token) => {
     const res = await axios.get(`${API_URL}/todos`, {
         headers: {
-            'Authorization': `Bearer ${token}`,
+            'Authorization': `Bearer ${localStorage.getItem("accessToken")}`,
         },
         withCredentials: true,
     });
@@ -29,7 +29,7 @@ const updateTodo = async (token, todoId, todoData) => {
 
   const res = await axios.patch(`${API_URL}/todos/${todoId}`, todoData, {
       headers: {
-          'Authorization': `Bearer ${token}`,
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`,
         },
         withCredentials: true,
     });
@@ -38,7 +38,7 @@ const updateTodo = async (token, todoId, todoData) => {
 const deleteTodo = async (token, todoId) => {
     const res = await axios.delete(`${API_URL}/todos/${todoId}`, {
         headers: {
-            'Authorization': `Bearer ${token}`,
+            'Authorization': `Bearer ${localStorage.getItem("accessToken")}`,
         },
         withCredentials: true,
     });
@@ -49,7 +49,7 @@ const getTodoById = async (token, todoId) => {
     console.log("Fetching Todo by ID in service:", todoId);
   const res = await axios.get(`${API_URL}/todos/${todoId}`, {
       headers: {
-          'Authorization': `Bearer ${token}`,
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`,
         },
         withCredentials: true,
     });
@@ -61,7 +61,7 @@ const toggleTodoCompletion = async (token, todoId) => {
     console.log("Toggling completion for Todo ID:", todoId);
 const res = await axios.patch(`${API_URL}/todos/${todoId}/toggle`, {}, {
     headers: {
-        'Authorization': `Bearer ${token}`,
+        'Authorization': `Bearer ${localStorage.getItem("accessToken")}`,
     },
     withCredentials: true,
 });
@@ -71,7 +71,7 @@ return res.data;
 const addSubTodo = async (token, todoId, subTodoData) => {
   const res = await axios.post(`${API_URL}/todos/${todoId}/subtodos`, subTodoData, {
       headers: {
-          'Authorization': `Bearer ${token}`,
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`,
         },
         withCredentials: true,
     });
@@ -81,7 +81,7 @@ const addSubTodo = async (token, todoId, subTodoData) => {
 const toggleSubTodoCompletion = async (token, todoId, subTodoId) => {
     const res = await axios.patch(`${API_URL}/todos/${todoId}/subtodos/${subTodoId}/toggle`, {}, {
         headers: {
-            'Authorization': `Bearer ${token}`,
+            'Authorization': `Bearer ${localStorage.getItem("accessToken")}`,
         },
         withCredentials: true,
     });
@@ -91,7 +91,7 @@ const toggleSubTodoCompletion = async (token, todoId, subTodoId) => {
 const deleteSubTodo = async (token, todoId, subTodoId) => {
     const res = await axios.delete(`${API_URL}/todos/${todoId}/subtodos/${subTodoId}`, {
         headers: {
-            'Authorization': `Bearer ${token}`,
+            'Authorization': `Bearer ${localStorage.getItem("accessToken")}`,
         },
         withCredentials: true,
     });

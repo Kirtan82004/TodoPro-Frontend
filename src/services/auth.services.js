@@ -37,7 +37,7 @@ const loginUser = async (credentials) => {
 const logoutUser = async (token) => {
 const res = await axios.post(`${API_URL}/auth/logout`, {}, {
     headers: {
-        'Authorization': `Bearer ${token}`
+        'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
     },
     withCredentials: true,
 });
