@@ -22,9 +22,7 @@ const [avatarPreview, setAvatarPreview] = useState(user?.avatar || "/placeholder
     newPassword: "",
   })
 
-  const token =
-    useSelector((state) => state.auth?.token) ||
-    localStorage.getItem("token")
+  const token = localStorage.getItem("accessToken");
 
   useEffect(() => {
     if (user) {

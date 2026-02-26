@@ -13,10 +13,9 @@ const Dashboard = () => {
     (state) => state.todo
   );
 
-  const token =
-    useSelector((state) => state.auth?.token) ||
-    localStorage.getItem("token");
+  const token = localStorage.getItem("accessToken");
 
+  console.log("Token in Dashboard:", token);
   // 🔹 Fetch Todos (ONLY ONCE)
   useEffect(() => {
     dispatch(fetchTodos({ token }));

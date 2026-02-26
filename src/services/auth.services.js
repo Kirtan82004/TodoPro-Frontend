@@ -20,8 +20,9 @@ const registerUser = async (userData) => {
 const loginUser = async (credentials) => {
    try {
      console.log("Credentials in Service:", credentials);
+
    const res = await axios.post(`${API_URL}/auth/login`, credentials, {
-     withCredentials: true,
+    withCredentials: true
    });
    localStorage.setItem("accessToken", res.data.accessToken);
    localStorage.setItem("refreshToken", res.data.refreshToken);

@@ -5,6 +5,7 @@ const API_URL = conf.API_URL;
 
 const createTodo = async (token, todoData) => {
     console.log("Creating Todo with Data:", todoData);
+    
   const res = await axios.post(`${API_URL}/todos`, todoData, {
       headers: {
           'Authorization': `Bearer ${token}`,

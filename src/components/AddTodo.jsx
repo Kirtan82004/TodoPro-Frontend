@@ -9,9 +9,7 @@ const AddTodoForm = () => {
 
   const { loading } = useSelector((state) => state.todo);
 
-  const token =
-    useSelector((state) => state.auth?.token) ||
-    localStorage.getItem("token");
+  const token = localStorage.getItem("accessToken");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
